@@ -25,7 +25,7 @@ namespace forget_password
         private void Form1_Load(object sender, EventArgs e)
         {
             sqlbaglantisi bgln = new sqlbaglantisi();
-            SqlCommand komut = new SqlCommand(" select * from person Where person_name='" + textBox1.Text.ToString() +"'and person_mail= '" + textBox2.Text.ToString() + "'", bgln.baglanti());
+            SqlCommand komut = new SqlCommand(" select * from person Where person_name='" + textBox1.Text.ToString() + "'and person_mail= '" + textBox2.Text.ToString() + "'", bgln.baglanti());
 
             SqlDataReader oku = komut.ExecuteReader();
             while (oku.Read())
@@ -39,8 +39,8 @@ namespace forget_password
                     SmtpClient smtpserver = new SmtpClient();
                     MailMessage mail = new MailMessage();
                     string tarih = DateTime.Now.ToLongDateString();
-                    string mailadresin = ("zynpylmnzynpylmn@outlook.com");
-                    string şifre = ("Mail.proje");
+                    string mailadresin = "zynpylmnzynpylmn@outlook.com";
+                    string şifre = "Mail.proje";
                     string smptsrvr = "smtp.office365.com";
                     string kime = (oku["eposta"].ToString());
                     string konu = ("sifre hatirlatma maili");
